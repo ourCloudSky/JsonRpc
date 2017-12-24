@@ -9,6 +9,6 @@ $server->addMethod('test', function($p){
 
 });
 
-$server->listen('websocket://127.0.0.1:23380');
+$server->listen('tcp://127.0.0.1:23380');
 
 \Workerman\Worker::runAll();
