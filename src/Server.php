@@ -81,6 +81,21 @@
 
             $method = $data['method'];
 
+            if(!isset($this->method[$method])){
+                
+                $conn->send(json_encode(
+                    [
+                        "jsonrpc"=> "2.0",
+                        "result" => null,
+                        "error"  => -32601,
+                        "id"     => $data['id']
+                    ]
+                ));
+
+                return;
+
+            }
+
             try{
                 $rslt = call_user_func($this->method[$method], $data['params']);
             }catch(\Exception $e){
@@ -89,6 +104,7 @@
 
             $conn->send(json_encode(
                 [
+                    "jsonrpc"=> "2.0",
                     "result" => $rslt,
                     "error"  => isset($msg) ? $msg : null,
                     "id"     => $data['id']
