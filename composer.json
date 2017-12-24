@@ -1,0 +1,21 @@
+{
+    "name": "cloudsky/jsonrpc",
+    "description": "A JsonRpc Library with Workerman Platform",
+    "type": "library",
+    "require": {
+        "php": ">=5.4",
+        "workerman/workerman": "^3.5"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tianle Xu",
+            "email": "xtl@xtlsoft.top"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "CloudSky\\JsonRpc\\": "./src/"
+        }
+    }
+}
